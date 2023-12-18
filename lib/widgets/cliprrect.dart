@@ -18,7 +18,10 @@ class ClipRRectWidget extends StatelessWidget {
             alignment: Alignment.center,
             height: 100,
             color: Colors.blue,
-            child: const Text("ClipRRect"),
+            child: const Text(
+              "ClipRRect",
+              style: TextStyle(color: Colors.white),
+            ),
           )),
     );
   }

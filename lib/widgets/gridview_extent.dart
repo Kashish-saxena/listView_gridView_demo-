@@ -20,7 +20,7 @@ class GridViewExtentWidget extends StatelessWidget {
                   color: Colors.purple,
                   shape: BoxShape.circle,
                 ),
-                child: const Text("GridView Extent"));
+                child: const Text("GridView Extent",style: TextStyle(color: Colors.white),));
           },
         ),
       ),

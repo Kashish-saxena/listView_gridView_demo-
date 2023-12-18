@@ -19,7 +19,7 @@ class GridViewCustomWidget extends StatelessWidget {
                   color: Colors.blue,
                   shape: BoxShape.circle,
                 ),
-                child: const Text("GridView Custom"));
+                child: const Text("GridView Custom",style: TextStyle(color: Colors.white),));
           },
           childCount: 10,
         ),

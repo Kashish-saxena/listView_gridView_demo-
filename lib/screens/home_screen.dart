@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:horizontal_list_demo/screens/test1.dart';
 import 'package:horizontal_list_demo/screens/test2.dart';
 import 'package:horizontal_list_demo/widgets/cliprrect.dart';
+import 'package:horizontal_list_demo/widgets/common_container.dart';
 import 'package:horizontal_list_demo/widgets/gridview_builder.dart';
 import 'package:horizontal_list_demo/widgets/gridview_count.dart';
 import 'package:horizontal_list_demo/widgets/gridview_custom.dart';
@@ -20,100 +21,53 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
+    return
+        // DefaultTabController(
+        //   length: 2,
+        //   child:
+        Scaffold(
+      backgroundColor: Colors.grey[300],
+      appBar: AppBar(
         backgroundColor: Colors.grey[300],
-        appBar: AppBar(
-          backgroundColor: Colors.grey[300],
-          title: Text(widget.title),
-          bottom:  PreferredSize(
-            preferredSize: Size.fromHeight(100),
-            child: TabBar(tabs: [
-            Tab(
-              text: "test",
-            ),
-            Tab(
-              text: "test 2",
-            )
-          ]),
-          )
-        ),
-        body: 
-        TabBarView(
+        title: Text(widget.title),
+      ),
+      //   bottom:  PreferredSize(
+      //     preferredSize: Size.fromHeight(100),
+      //     child: TabBar(tabs: [
+      //     Tab(
+      //       text: "test",
+      //     ),
+      //     Tab(
+      //       text: "test 2",
+      //     )
+      //   ]),
+      //   )
+      // ),
+      // body:
+      // TabBarView(
+      //   children: [
+      //     Test1Screen(),
+      //     Test2Screen()
+      //   ],
+      // )
+
+      body: const SingleChildScrollView(
+        child: Column(
           children: [
-            Test1Screen(),
-            Test2Screen()
+            ContainerWidget(
+                text: "ListView Builder", widget: ListViewBuilderWidget()),
+            ContainerWidget(
+                text: "GridView count", widget: GridViewCountWidget()),
+            ContainerWidget(
+                text: "GridView Builder", widget: GridViewBuilderWidget()),
+            ContainerWidget(
+                text: "GridView Extent", widget: GridViewExtentWidget()),
+            ContainerWidget(
+                text: "GridView Custom", widget: GridViewCustomWidget()),
+            ContainerWidget(
+              text: "ClipRRect", widget: ClipRRectWidget()),
           ],
-        )
-        
-        // SingleChildScrollView(
-        //   child: Column(
-        //     children: [
-        //       Container(
-        //         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        //         padding: const EdgeInsets.symmetric(horizontal: 10),
-        //         decoration: BoxDecoration(
-        //             color: Colors.white,
-        //             borderRadius: BorderRadius.circular(10),
-        //             boxShadow: const [
-        //               BoxShadow(blurRadius: 6, color: Colors.black)
-        //             ]),
-        //         child: const Column(
-        //           crossAxisAlignment: CrossAxisAlignment.start,
-        //           children: [
-        //             Text(
-        //               "ListView Builder",
-        //               style: TextStyle(fontSize: 20),
-        //             ),
-        //             ListViewBuilderWidget(),
-        //           ],
-        //         ),
-        //       ),
-        //       Container(
-        //         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        //         padding: const EdgeInsets.symmetric(horizontal: 10),
-        //         decoration: BoxDecoration(
-        //             color: Colors.white,
-        //             borderRadius: BorderRadius.circular(10),
-        //             boxShadow: const [
-        //               BoxShadow(blurRadius: 6, color: Colors.black)
-        //             ]),
-        //         child: Column(
-        //           crossAxisAlignment: CrossAxisAlignment.start,
-        //           children: [
-        //             Text(
-        //               "GridView Count",
-        //               style: TextStyle(fontSize: 20),
-        //             ),
-        //             GridViewCountWidget(),
-        //           ],
-        //         ),
-        //       ),
-        //       Text(
-        //         "GridView Builder",
-        //         style: TextStyle(fontSize: 20),
-        //       ),
-        //       GridViewBuilderWidget(),
-        //       Text(
-        //         "GridView Extent",
-        //         style: TextStyle(fontSize: 20),
-        //       ),
-        //       GridViewExtentWidget(),
-        //       Text(
-        //         "GridView Custom",
-        //         style: TextStyle(fontSize: 20),
-        //       ),
-        //       GridViewCustomWidget(),
-        //       Text(
-        //         "ClipRRect",
-        //         style: TextStyle(fontSize: 20),
-        //       ),
-        //       ClipRRectWidget(),
-        //     ],
-        //   ),
-        // ),
-     
+        ),
       ),
     );
   }

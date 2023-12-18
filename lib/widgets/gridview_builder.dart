@@ -6,7 +6,7 @@ class GridViewBuilderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 100,
       margin: const EdgeInsets.symmetric(vertical: 20),
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
@@ -17,11 +17,11 @@ class GridViewBuilderWidget extends StatelessWidget {
         itemBuilder: ((context, index) {
           return Container(
               alignment: Alignment.center,
+              margin: const EdgeInsets.all(10),
               decoration: const BoxDecoration(
                 color: Colors.purple,
-                shape: BoxShape.circle,
               ),
-              child: const Text("GridView Builder"));
+              child: const Text("GridView Builder",style: TextStyle(color: Colors.white),));
         }),
       ),
     );
